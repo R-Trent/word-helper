@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@MainActor
 class HelperModel: ObservableObject {
     @Published var currentWord = ""
     @Published var wordResultsList = WordList()
@@ -77,7 +78,7 @@ class HelperModel: ObservableObject {
         }
     }
     
-    func findWords(letters: String, evaluations: [LetterEvaluation]) {
+    func callAPI(letters: String, evaluations: [LetterEvaluation]) async throws {
         var apiString = "https://api.datamuse.com/words?sp="
         let newString = letters.replacingOccurrences(of: " ", with: "?")
         var goodLetters = ""
@@ -153,18 +154,24 @@ class HelperModel: ObservableObject {
             }
         }
         
-        print(apiString)
+        guard let url = URL(string: apiString) else { fatalError("Missing URL") }
         
+        let urlRequest = URLRequest(url: url)
+        let (data, response) = try await URLSession.shared.data(for: urlRequest)
+        guard (response as? HTTPURLResponse)?.statusCode == 200 else { fatalError("Error while fetching data") }
+        let wordList = try JSONDecoder().decode([Word].self, from: data)
+        self.showingWordsView = true
         
-        
-        if let url = URL(string: apiString) {
-            if let data = try? Data(contentsOf: url) {
-                self.parse(json: data)
-            } else {
-                showingErrorAlert = true
-            }
+        wordResultsList.results = wordList.filter { word in
+            return validateWord(word)
+        }
+        //  Check to see if there are results, show "No words found" view if not
+        if wordResultsList.results.count > 0 {
+            findingWords = false
+            hasWords = true
         } else {
-            showingErrorAlert = true
+            findingWords = false
+            hasWords = false
         }
     }
     

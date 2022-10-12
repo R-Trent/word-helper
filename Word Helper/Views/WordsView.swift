@@ -37,7 +37,7 @@ struct WordsView: View {
                                     if model.findingWords {
                                         ProgressView()
                                             .progressViewStyle(.circular)
-                                            .tint(.white)
+                                            .tint(.gray)
                                             .zIndex(1)
                                     }
                                     Text("Load More Results")
@@ -89,11 +89,17 @@ struct WordsView: View {
     }
     
     func loadMore() {
+        model.findingWords = true
         withAnimation {
             model.numberOfResults += 10
             model.resultCount = 0
-            model.findingWords = true
-            model.findWords(letters: model.currentWord, evaluations: model.evaluations)
+            Task {
+                do {
+                    try await model.callAPI(letters: model.currentWord, evaluations: model.evaluations)
+                } catch {
+                    print("Error", error)
+                }
+            }
         }
     }
 }

@@ -132,7 +132,13 @@ struct MainView: View {
     
     func getWords() {
         model.findingWords = true
-        model.findWords(letters: model.currentWord, evaluations: model.evaluations)
+        Task {
+            do {
+                try await model.callAPI(letters: model.currentWord, evaluations: model.evaluations)
+            } catch {
+                print("Error", error)
+            }
+        }
     }
     
     func enterBadLetters() {
@@ -153,9 +159,6 @@ struct MainView_Previews: PreviewProvider {
         MainView()
             .previewInterfaceOrientation(.portrait)
             .environmentObject(HelperModel())
-            
-            
-            
             
     }
 }

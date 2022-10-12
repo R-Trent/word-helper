@@ -105,7 +105,7 @@ private extension LetterEvaluation {
         case .notIncluded:
             return Color(.systemGray)
         case .included:
-            return Color(.systemTeal)
+            return Color(red: 0.5255, green: 0.749, blue: 0.9686)
         case .match:
             return Color(.systemOrange)
         }

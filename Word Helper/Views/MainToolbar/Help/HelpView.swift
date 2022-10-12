@@ -50,6 +50,8 @@ struct HelpView: View {
 struct HelpView_Previews: PreviewProvider {
     static var previews: some View {
         HelpView(colorBlindEnabled: true)
+            .environmentObject(HelperModel())
         HelpView(colorBlindEnabled: false)
+            .environmentObject(HelperModel())
     }
 }

@@ -23,7 +23,7 @@ struct TipView: View {
                 .font(.system(.body, design: .rounded))
                 .fontWeight(.regular)
                 .multilineTextAlignment(.center)
-                .frame(maxWidth: 225)
+                .frame(maxWidth: 225, alignment: .leading)
         }
         .frame(height: 75, alignment: .center)
     }
