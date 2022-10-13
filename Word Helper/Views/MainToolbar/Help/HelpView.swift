@@ -35,9 +35,9 @@ struct HelpView: View {
                 .fontWeight(.bold)
                 .frame(maxWidth: .infinity, alignment: .center)
             VStack {
-                WordGuessView(letters: "SMART", colorBlind: colorBlindEnabled, evaluations:[.match, .notIncluded, .notIncluded, .notIncluded, .notIncluded])
+                WordGuessView(letters: "SMART", colorBlind: colorBlindEnabled, evaluations:[.match, .notIncluded, .notIncluded, .notIncluded, .notIncluded], interactionDisabled: true)
                 HelpCaptionView(letter: "S", match: true)
-                WordGuessView(letters: "BACON", colorBlind: colorBlindEnabled, evaluations:[.notIncluded, .included, .notIncluded, .notIncluded, .notIncluded])
+                WordGuessView(letters: "BACON", colorBlind: colorBlindEnabled, evaluations:[.notIncluded, .included, .notIncluded, .notIncluded, .notIncluded], interactionDisabled: true)
                 HelpCaptionView(letter: "A")
             }
             
