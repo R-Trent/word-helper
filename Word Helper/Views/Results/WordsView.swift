@@ -108,7 +108,6 @@ struct WordsView: View {
                     .background(Color(uiColor: .secondarySystemBackground))
                     .foregroundColor(Color.primary)
                     .cornerRadius(15)
-                    .shadow(color: Color(uiColor: .systemGray2), radius: 5)
                 }
                 .padding(.top, 5)
             } else {
