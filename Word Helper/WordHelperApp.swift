@@ -25,6 +25,7 @@ struct WordHelperApp: App {
             }()
             
             MainView()
+                .dynamicTypeSize(.small ... .xxLarge)
                 .environmentObject(model)
                 .preferredColorScheme(model.preferredInterface != .system ? colorScheme : .none)
         }

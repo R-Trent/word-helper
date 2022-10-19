@@ -43,6 +43,7 @@ struct HelpView: View {
             
         }
         .padding(24)
+        .dynamicTypeSize(.small ... .large)
     }
 
 }

@@ -86,6 +86,7 @@ struct SettingsView: View {
                 }
             }
             .navigationTitle("Settings")
+            .dynamicTypeSize(.small ... .large)
         }
     }
 }
