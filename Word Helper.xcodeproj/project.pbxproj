@@ -13,6 +13,8 @@
 		C33D30DE288C9BA000B3F91E /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33D30DD288C9BA000B3F91E /* LoadingView.swift */; };
 		C33D30E0288CC17C00B3F91E /* BadLettersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33D30DF288CC17C00B3F91E /* BadLettersView.swift */; };
 		C35B32C428909B1E00434DE0 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C35B32C328909B1E00434DE0 /* Launch Screen.storyboard */; };
+		C36890A028FF49350048F975 /* DictionaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C368909F28FF49350048F975 /* DictionaryView.swift */; };
+		C36890A628FF6AF00048F975 /* SimpleToast in Frameworks */ = {isa = PBXBuildFile; productRef = C36890A528FF6AF00048F975 /* SimpleToast */; };
 		C38D9D7D2888ADB8008950E1 /* WordHelperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38D9D7C2888ADB8008950E1 /* WordHelperApp.swift */; };
 		C38D9D7F2888ADB8008950E1 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38D9D7E2888ADB8008950E1 /* MainView.swift */; };
 		C38D9D812888ADB9008950E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C38D9D802888ADB9008950E1 /* Assets.xcassets */; };
@@ -44,6 +46,7 @@
 		C33D30DF288CC17C00B3F91E /* BadLettersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadLettersView.swift; sourceTree = "<group>"; };
 		C35B32C328909B1E00434DE0 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		C35B32C528909EB400434DE0 /* Word-Helper-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Word-Helper-Info.plist"; sourceTree = "<group>"; };
+		C368909F28FF49350048F975 /* DictionaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryView.swift; sourceTree = "<group>"; };
 		C38D9D792888ADB8008950E1 /* Word Helper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Word Helper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C38D9D7C2888ADB8008950E1 /* WordHelperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordHelperApp.swift; sourceTree = "<group>"; };
 		C38D9D7E2888ADB8008950E1 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -73,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C36890A628FF6AF00048F975 /* SimpleToast in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +99,15 @@
 				C33D30D9288B4A6400B3F91E /* SettingsView.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		C368909E28FF491C0048F975 /* Results */ = {
+			isa = PBXGroup;
+			children = (
+				C3F1C32E2889EC6E009AC681 /* WordsView.swift */,
+				C368909F28FF49350048F975 /* DictionaryView.swift */,
+			);
+			path = Results;
 			sourceTree = "<group>";
 		};
 		C38D9D702888ADB8008950E1 = {
@@ -163,8 +176,8 @@
 			isa = PBXGroup;
 			children = (
 				C33D30D5288B19EB00B3F91E /* MainToolbar */,
-				C3F1C32E2889EC6E009AC681 /* WordsView.swift */,
 				C3F1C3362889F2BA009AC681 /* Main */,
+				C368909E28FF491C0048F975 /* Results */,
 				C3F1C3352889F1C4009AC681 /* Keyboard */,
 			);
 			path = Views;
@@ -226,6 +239,9 @@
 			dependencies = (
 			);
 			name = "Word Helper";
+			packageProductDependencies = (
+				C36890A528FF6AF00048F975 /* SimpleToast */,
+			);
 			productName = WordleHelper;
 			productReference = C38D9D792888ADB8008950E1 /* Word Helper.app */;
 			productType = "com.apple.product-type.application";
@@ -254,6 +270,9 @@
 				Base,
 			);
 			mainGroup = C38D9D702888ADB8008950E1;
+			packageReferences = (
+				C36890A428FF6AF00048F975 /* XCRemoteSwiftPackageReference "SimpleToast" */,
+			);
 			productRefGroup = C38D9D7A2888ADB8008950E1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -290,6 +309,7 @@
 				C3F1C3382889F8E8009AC681 /* Word.swift in Sources */,
 				C33D30DA288B4A6400B3F91E /* SettingsView.swift in Sources */,
 				C33D30D7288B1A0B00B3F91E /* MainToolbarView.swift in Sources */,
+				C36890A028FF49350048F975 /* DictionaryView.swift in Sources */,
 				C3F1C32D28893E4B009AC681 /* String+Subscript.swift in Sources */,
 				C3F1C3222888E284009AC681 /* KeyboardView.swift in Sources */,
 				C3F1C31E2888CC85009AC681 /* HelpView.swift in Sources */,
@@ -509,6 +529,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C36890A428FF6AF00048F975 /* XCRemoteSwiftPackageReference "SimpleToast" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sanzaru/SimpleToast.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.6.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C36890A528FF6AF00048F975 /* SimpleToast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C36890A428FF6AF00048F975 /* XCRemoteSwiftPackageReference "SimpleToast" */;
+			productName = SimpleToast;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C38D9D712888ADB8008950E1 /* Project object */;
 }
