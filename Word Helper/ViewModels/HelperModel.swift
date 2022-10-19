@@ -33,6 +33,8 @@ class HelperModel: ObservableObject {
     
     @Published var resultCount = 0
     
+    @Published var dictionaryWord = ""
+    
     var disableKeyboard: Bool {
         currentWord.count == numberOfLetters && !showingBadLettersView
     }

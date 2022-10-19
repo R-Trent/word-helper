@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:/Users/rtrent/Desktop/Projects/100 Days of SwiftUI/WordHelper/Word Helper.xcodeproj">
+      location = "self:">
    </FileRef>
 </Workspace>

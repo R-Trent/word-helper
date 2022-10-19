@@ -136,6 +136,7 @@ struct MainView: View {
             do {
                 try await model.callAPI(letters: model.currentWord, evaluations: model.evaluations)
             } catch {
+                model.showingErrorAlert.toggle()
                 print("Error", error)
             }
         }
