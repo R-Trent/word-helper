@@ -13,7 +13,7 @@ struct SettingsView: View {
     var body: some View {
         NavigationView {
             Form {
-                Section(header: Text("Main Settings")) {
+                Section {
                     Toggle(isOn: $model.colorBlindEnabled) {
                         VStack(alignment: .leading, spacing: 2.5) {
                             Text("High Contrast Mode")
@@ -28,12 +28,6 @@ struct SettingsView: View {
                         }
                     }
                     .toggleStyle(SwitchToggleStyle(tint: .blue))
-//                    Stepper(value: $model.numberOfLetters, in: 1...10) {
-//                        Text("Number of letters: \(model.numberOfLetters)")
-//                            .font(.system(.body, design: .rounded))
-//                            .fontWeight(.regular)
-//                            .multilineTextAlignment(.center)
-//                    }
                     HStack {
                         Text("Interface Style")
                             .font(.system(.body, design: .rounded))
@@ -69,9 +63,12 @@ struct SettingsView: View {
                                 .foregroundColor(.secondary)
                         }
                     }
+                } header: {
+                    Text("Main Settings")
+                        .font(.system(.subheadline))
                 }
                 
-                Section(header: Text("Contact")) {
+                Section {
                     let url = "mailto:rtrent.dev@gmail.com?subject=Word%20Helper%20Support%20Request"
                     Link(destination: URL(string: url)!) {
                         HStack {
@@ -83,6 +80,9 @@ struct SettingsView: View {
                                 .multilineTextAlignment(.center)
                         }
                     }
+                } header: {
+                    Text("Contact")
+                        .font(.system(.subheadline))
                 }
             }
             .navigationTitle("Settings")
